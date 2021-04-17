@@ -13,7 +13,6 @@ namespace ZodiacSignsService
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine(GatewayService.IsDateValid("02/29/2021"));
             //CreateHostBuilder(args).Build().Run();
         }
 

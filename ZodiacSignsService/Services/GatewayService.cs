@@ -16,7 +16,7 @@ namespace ZodiacSignsService.Services
 
         }
 
-        public static bool IsDateValid(string input)
+        private bool IsDateValid(string input)
         {
             if (input.Length != 10 && input.Length != 8)
             {
@@ -110,6 +110,11 @@ namespace ZodiacSignsService.Services
         }
         public override Task<GatewayReply> ProcessRequest(GatewayRequest request, ServerCallContext context)
         {
+            if (!IsDateValid(request.Date))
+            {
+                return Task.FromResult(new GatewayReply { ZodiacSign = "Invalid" });
+            }
+
             return base.ProcessRequest(request, context);
         }
     }
