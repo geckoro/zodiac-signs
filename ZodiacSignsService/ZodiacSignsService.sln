@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZodiacSignsService", "ZodiacSignsService.csproj", "{E1264838-99E6-4103-8BC5-675E624C5C24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZodiacSignsService", "ZodiacSignsService.csproj", "{E1264838-99E6-4103-8BC5-675E624C5C24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
