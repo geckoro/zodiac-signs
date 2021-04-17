@@ -1,0 +1,24 @@
+
+syntax = "proto3";
+
+option csharp_namespace = "WinterService";
+
+package season;
+
+service Season {
+  rpc GetZodiacSign (SeasonRequest) returns (SeasonReply);
+}
+
+message SeasonRequest {
+  Date date = 1;
+}
+
+message SeasonReply {
+  string zodiac_sign = 1;
+}
+
+message Date {
+	int32 month = 1;
+	int32 day = 2;
+	int32 year = 3;
+}

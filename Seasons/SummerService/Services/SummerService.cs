@@ -7,20 +7,21 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using ZodiacSignsService.Models;
 
-namespace SpringService.Services
+namespace SummerService.Services
 {
-    public class SpringService : Season.SeasonBase
+    public class SummerService : Season.SeasonBase
     {
         public override Task<SeasonReply> GetZodiacSign(SeasonRequest request, ServerCallContext context)
         {
             string result = "Invalid";
             List<ZodiacSign> list = new List<ZodiacSign>();
 
-            string jsonString = File.ReadAllText(@"D:\FACULT 2020-2021\CNA\zodiac-signs\Seasons\SpringService\Resources\spring.json");
+            string jsonString = File.ReadAllText(@"D:\FACULT 2020-2021\CNA\zodiac-signs\Seasons\SummerService\Resources\summer.json");
             list = JsonSerializer.Deserialize<List<ZodiacSign>>(jsonString);
 
             foreach (var sign in list)
             {
+                Console.WriteLine($"{sign.Name} {sign.StartDate} {sign.EndDate}");
                 if (IsBetween(request.Date, sign.StartDate, sign.EndDate))
                 {
                     result = sign.Name;

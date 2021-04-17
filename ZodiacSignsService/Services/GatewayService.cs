@@ -42,7 +42,38 @@ namespace ZodiacSignsService.Services
                 case 6:
                 case 7:
                 case 8:
+                    channel = GrpcChannel.ForAddress("https://localhost:5005");
+                    client = new Season.SeasonClient(channel);
 
+                    reply = await client.GetZodiacSignAsync(
+                        new SeasonRequest
+                        {
+                            Date = dateToBeSent
+                        });
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    channel = GrpcChannel.ForAddress("https://localhost:5009");
+                    client = new Season.SeasonClient(channel);
+
+                    reply = await client.GetZodiacSignAsync(
+                        new SeasonRequest
+                        {
+                            Date = dateToBeSent
+                        });
+                    break;
+                case 12:
+                case 1:
+                case 2:
+                    channel = GrpcChannel.ForAddress("https://localhost:5007");
+                    client = new Season.SeasonClient(channel);
+
+                    reply = await client.GetZodiacSignAsync(
+                        new SeasonRequest
+                        {
+                            Date = dateToBeSent
+                        });
                     break;
                 default:
                     reply = null;
