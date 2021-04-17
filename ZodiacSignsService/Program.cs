@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using ZodiacSignsService.Services;
 
 namespace ZodiacSignsService
 {
@@ -12,7 +13,8 @@ namespace ZodiacSignsService
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            Console.WriteLine(GatewayService.IsDateValid("02/29/2021"));
+            //CreateHostBuilder(args).Build().Run();
         }
 
         // Additional configuration is required to successfully run gRPC on macOS.
