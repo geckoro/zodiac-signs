@@ -4,18 +4,20 @@ option csharp_namespace = "ZodiacSignsService";
 
 package gateway;
 
-// The greeting service definition.
 service Gateway {
-  // Sends a greeting
   rpc ProcessRequest (GatewayRequest) returns (GatewayReply);
 }
 
-// The request message containing the user's name.
 message GatewayRequest {
-  string date = 1;
+	Date date = 1;
 }
 
-// The response message containing the greetings.
 message GatewayReply {
-  string zodiac_sign = 1;
+	string zodiac_sign = 1;
+}
+
+message Date {
+	int32 month = 1;
+	int32 day = 2;
+	int32 year = 3;
 }

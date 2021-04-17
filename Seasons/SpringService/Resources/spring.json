@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Pisces",
+    "StartDate": "02/19",
+    "EndDate": "03/19"
+  },
+  {
+    "Name": "Aries",
+    "StartDate": "03/20",
+    "EndDate": "04/18"
+  },
+  {
+    "Name": "Taurus",
+    "StartDate": "04/19",
+    "EndDate": "05/20"
+  },
+  {
+    "Name": "Gemini",
+    "StartDate": "05/21",
+    "EndDate": "06/20"
+  }
+]

@@ -16,15 +16,15 @@ namespace ZodiacSignsClient
 
         }
 
-        private static bool IsDateValid(string input)
+        private static Date IsDateValid(string input)
         {
             if (input.Length != 10 && input.Length != 8)
             {
-                return false;
+                return null;
             }
             if (input.Count(c => c == '/') != 2)
             {
-                return false;
+                return null;
             }
             var substrings = input.Split('/');
             var date = new Date();
@@ -33,32 +33,32 @@ namespace ZodiacSignsClient
                 int parsedInt;
                 if (!int.TryParse(substrings[index], out parsedInt))
                 {
-                    return false;
+                    return null;
                 }
                 if (parsedInt == 0)
                 {
-                    return false;
+                    return null;
                 }
                 switch (index)
                 {
                     case 0:
                         if (!(parsedInt >= 1 && parsedInt <= 12))
                         {
-                            return false;
+                            return null;
                         }
                         date.Month = parsedInt;
                         break;
                     case 1:
                         if (!(parsedInt >= 1 && parsedInt <= 31))
                         {
-                            return false;
+                            return null;
                         }
                         date.Day = parsedInt;
                         break;
                     case 2:
                         if (!(parsedInt >= 1900 && parsedInt <= 2021))
                         {
-                            return false;
+                            return null;
                         }
                         date.Year = parsedInt;
                         break;
@@ -76,7 +76,7 @@ namespace ZodiacSignsClient
                 case 12:
                     if (!(date.Day >= 1 && date.Day <= 31))
                     {
-                        return false;
+                        return null;
                     }
                     break;
                 case 4:
@@ -85,7 +85,7 @@ namespace ZodiacSignsClient
                 case 11:
                     if (!(date.Day >= 1 && date.Day <= 30))
                     {
-                        return false;
+                        return null;
                     }
                     break;
                 case 2:
@@ -93,38 +93,49 @@ namespace ZodiacSignsClient
                     {
                         if (!(date.Day >= 1 && date.Day <= 29))
                         {
-                            return false;
+                            return null;
                         }
                     }
                     else
                     {
                         if (!(date.Day >= 1 && date.Day <= 28))
                         {
-                            return false;
+                            return null;
                         }
                     }
                     break;
             }
 
-            return true;
+            return date;
         }
 
         static async Task Main(string[] args)
         {
-            // The port number(5001) must match the port of the gRPC server.
             using var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new Gateway.GatewayClient(channel);
 
             Console.Write("Type in your desired date: ");
             var input = Console.ReadLine();
+            var date = IsDateValid(input);
 
-            if (!IsDateValid(input))
+            if (date == null)
             {
                 throw new ArgumentException("The date must be valid.");
             }
 
+            var dateToBeSent = new ZodiacSignsService.Date()
+            {
+                Month = date.Month,
+                Day = date.Day,
+                Year = date.Year
+            };
+
             var reply = await client.ProcessRequestAsync(
-                              new GatewayRequest { Date = input });
+                              new GatewayRequest
+                              {
+                                  Date = dateToBeSent
+                              }); ;
+
             Console.WriteLine("The zodiac sign associated with that date is " + reply.ZodiacSign);
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
