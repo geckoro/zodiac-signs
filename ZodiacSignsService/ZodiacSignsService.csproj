@@ -12,8 +12,4 @@
     <PackageReference Include="Grpc.AspNetCore" Version="2.34.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
