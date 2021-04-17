@@ -1,14 +1,22 @@
-{
-  "Libra": {
-    "start-date": "09/23",
-    "end-date": "10/22"
+[
+  {
+    "Name": "Virgo",
+    "StartDate": "08/23",
+    "EndDate": "09/22"
   },
-  "Scorpio": {
-    "start-date": "10/23",
-    "end-date": "11/21"
+  {
+    "Name": "Libra",
+    "StartDate": "09/23",
+    "EndDate": "10/22"
   },
-  "Sagittarius": {
-    "start-date": "11/22",
-    "end-date": "12/21"
+  {
+    "Name": "Scorpio",
+    "StartDate": "10/23",
+    "EndDate": "11/21"
+  },
+  {
+    "Name": "Sagittarius",
+    "StartDate": "11/22",
+    "EndDate": "12/21"
   }
-}
+]

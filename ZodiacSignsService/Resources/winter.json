@@ -1,14 +1,22 @@
-{
-  "Capricorn": {
-    "start-date": "12/22",
-    "end-date": "01/19"
+[
+  {
+    "Name": "Sagittarius",
+    "StartDate": "11/22",
+    "EndDate": "12/21"
   },
-  "Aquarius": {
-    "start-date": "01/20",
-    "end-date": "02/18"
+  {
+    "Name": "Capricorn",
+    "StartDate": "12/22",
+    "EndDate": "01/19"
   },
-  "Pisces": {
-    "start-date": "02/19",
-    "end-date": "03/19"
+  {
+    "Name": "Aquarius",
+    "StartDate": "01/20",
+    "EndDate": "02/18"
+  },
+  {
+    "Name": "Pisces",
+    "StartDate": "02/19",
+    "EndDate": "03/19"
   }
-}
+]
