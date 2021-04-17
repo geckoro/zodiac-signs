@@ -1,0 +1,14 @@
+{
+  "Cancer": {
+    "start-date": "06/21",
+    "end-date": "07/22"
+  },
+  "Leo": {
+    "start-date": "07/23",
+    "end-date": "08/22"
+  },
+  "Virgo": {
+    "start-date": "08/23",
+    "end-date": "09/22"
+  }
+}
