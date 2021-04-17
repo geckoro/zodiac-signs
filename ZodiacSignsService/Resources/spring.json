@@ -1,0 +1,14 @@
+{
+  "Aries": {
+    "start-date": "03/20",
+    "end-date": "04/18"
+  },
+  "Taurus": {
+    "start-date": "04/19",
+    "end-date": "05/20"
+  },
+  "Gemini": {
+    "start-date": "05/21",
+    "end-date": "06/20"
+  }
+}
