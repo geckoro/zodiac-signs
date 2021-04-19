@@ -21,7 +21,6 @@ namespace SummerService.Services
 
             foreach (var sign in list)
             {
-                Console.WriteLine($"{sign.Name} {sign.StartDate} {sign.EndDate}");
                 if (IsBetween(request.Date, sign.StartDate, sign.EndDate))
                 {
                     result = sign.Name;

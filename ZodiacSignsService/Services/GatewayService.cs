@@ -15,7 +15,6 @@ namespace ZodiacSignsService.Services
     {
         public override async Task<GatewayReply> ProcessRequest(GatewayRequest request, ServerCallContext context)
         {
-            Console.WriteLine($"{request.Date.Month}");
             SeasonReply reply = null;
 
             var dateToBeSent = new SeasonService.Date()
@@ -30,6 +29,7 @@ namespace ZodiacSignsService.Services
                 case 3:
                 case 4:
                 case 5:
+                    Console.WriteLine("Communicating with Spring service...");
                     var channel = GrpcChannel.ForAddress("https://localhost:5003");
                     var client = new Season.SeasonClient(channel);
 
@@ -42,6 +42,7 @@ namespace ZodiacSignsService.Services
                 case 6:
                 case 7:
                 case 8:
+                    Console.WriteLine("Communicating with Summer service...");
                     channel = GrpcChannel.ForAddress("https://localhost:5005");
                     client = new Season.SeasonClient(channel);
 
@@ -54,6 +55,7 @@ namespace ZodiacSignsService.Services
                 case 9:
                 case 10:
                 case 11:
+                    Console.WriteLine("Communicating with Autumn service...");
                     channel = GrpcChannel.ForAddress("https://localhost:5009");
                     client = new Season.SeasonClient(channel);
 
@@ -66,6 +68,7 @@ namespace ZodiacSignsService.Services
                 case 12:
                 case 1:
                 case 2:
+                    Console.WriteLine("Communicating with Winter service...");
                     channel = GrpcChannel.ForAddress("https://localhost:5007");
                     client = new Season.SeasonClient(channel);
 
